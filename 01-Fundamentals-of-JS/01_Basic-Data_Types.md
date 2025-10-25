@@ -7,6 +7,7 @@ Q - what are variables? type of variables.
 Ans - Variables in JavaScript are named containers used to store and manipulate data within a program, allowing that data to be reused or changed as needed.
 
 var: Function-scoped or globally scoped, can be re-declared and updated. **Depricated
+var decleared variables are added in window
 
 let: Block-scoped, cannot be re-declared in the same scope, but can be updated.
 
