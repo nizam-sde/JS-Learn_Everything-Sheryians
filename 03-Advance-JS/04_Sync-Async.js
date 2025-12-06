@@ -52,32 +52,46 @@
         console.log(userProfileDetails);
     })
 
+
     // callback hell example
 
-    function IGprofiles(userName, cb) {
-        setTimeout(() => {
-            console.log(`Fetched User is ${userName}`);
-            cb({userName})
-        }, 3000);
+function igProfileDo(userName, cb) {
+    setTimeout(() => {
+        console.log(`Profile fetched of ${userName}`);
+        cb({ _id: 1234, userName, age: 23, email: "nizam@email.com" });
+    }, 3000);
+}
 
-        function getAllPostsOfUser(posts, cb) {
-            setTimeout(() => {
-                cb({ _id: 12345 , posts: ['Apple Post', 'ball post', 'goldfish Post']})
-            }, 4000);
-        }
-    }
+function shareAllPost(id, cb) {
+    setTimeout(() => {
+        cb({ _id: id, posts: ["Hello1", "Guys2", "ruFine3"] });
+    }, 3000);
+}
 
+function collectSavedPost(id, cb) {
+    setTimeout(() => {
+        cb({ _id: id, saved: [1, 2, 3, 4, 5] });
+    }, 3000);
+}
 
-    IGprofiles('Nizam', function (usersDetails) {
-        console.log(usersDetails);
-        getAllPostsOfUser(usersDetails._id, function posts(posts) {
-            console.log(posts);
-        })
-    })
+igProfileDo("Nizam", function (profileData) {
+    console.log(profileData);
+
+    shareAllPost(profileData._id, function (posts) {
+        console.log(posts);
+
+        collectSavedPost(profileData._id, function (saved) {
+            console.log(saved);
+        });
+
+    });
+});
+
 
     // promises: resolve, reject, then, catch
 
     // async/await syntax, error handeling with try catch
 
-    // chaining async operations
+    // chaining async operations	
 
+300
