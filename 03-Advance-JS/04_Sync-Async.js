@@ -90,8 +90,50 @@ igProfileDo("Nizam", function (profileData) {
 
     // promises: resolve, reject, then, catch
 
+				// promises gives you one state from resolve & reject, and accordingly for both res & rej we have to write code if state gives res what to perform else rej then what to perform.
+
+let pr = new Promise(function (res, rej) {
+    setTimeout(() => {
+       let ranNum = Math.floor(Math.random() * 10);
+       if (ranNum > 5) res("resolved with " + ranNum);
+       else rej("rejected with " + ranNum);
+    }, 3500);
+});
+
+pr
+    .then(result => {
+        console.log("Resolved:", result);
+    })
+    .catch(error => {
+        console.log("Rejected:", error);
+    });
+
+
     // async/await syntax, error handeling with try catch
+
+				
+				let pr = new Promise(function (res, rej) {
+    setTimeout(() => {
+       let ranNum = Math.floor(Math.random() * 10);
+       if (ranNum > 5) res("resolved with " + ranNum);
+       else rej("rejected with " + ranNum);
+    }, 3500);
+});
+
+
+				async function checkResult()
+{
+		try{
+				let val = await pr;
+				console.log(val)
+	}
+		catch(err){
+			console.log(err)
+}
+}
+
+checkResult();
+
 
     // chaining async operations	
 
-300
